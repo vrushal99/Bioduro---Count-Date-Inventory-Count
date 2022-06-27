@@ -28,17 +28,21 @@ define(["N/search", "N/runtime", "N/record"], function (
             let searchResultItems = searchForItems(location, classification);
 
             if (_logValidation(searchResultItems)) {
-              // log.debug("searchResultItems", searchResultItems);
               setItemsOnSublist(searchResultItems, currentrecord);
             }
           } else {
             let searchResultItems = searchForItems(location);
             if (_logValidation(searchResultItems)) {
-              //  log.debug("searchResultItems", searchResultItems);
               setItemsOnSublist(searchResultItems, currentrecord);
             }
           }
         }
+      } else if (fieldname == "item" && sublistId == "item") {
+        currentrecord.setCurrentSublistValue({
+          sublistId: "item",
+          fieldId: "binnumber",
+          value: binNumber
+        });
       }
     } catch (error) {
       log.debug("Error in fieldchanged()", error);
@@ -47,17 +51,16 @@ define(["N/search", "N/runtime", "N/record"], function (
 
   function setItemsOnSublist(searchResultItems, currentrecord) {
     try {
-        var lineCount = currentrecord.getLineCount({
-            sublistId: "item"
-        })
+      var linecount = currentrecord.getLineCount({
+        sublistId: "item"
+      });
+
       for (let i = 0; i < searchResultItems.length; i++) {
-        // currentrecord.selectLine({
-        //     sublistId: "item",
-        //     line: lineCount
-        // })
-        currentrecord.selectNewLine({
-          sublistId: "item"
+        currentrecord.selectLine({
+          sublistId: "item",
+          line: linecount
         });
+        linecount++;
 
         binNumber = searchResultItems[i].getValue({
           name: "binnumber",
@@ -75,12 +78,6 @@ define(["N/search", "N/runtime", "N/record"], function (
             label: "Internal ID"
           }),
           forceSyncSourcing: true
-        });
-
-        currentrecord.setCurrentSublistValue({
-          sublistId: "item",
-          fieldId: "binnumber",
-          value: binNumber
         });
 
         currentrecord.commitLine({
@@ -106,9 +103,7 @@ define(["N/search", "N/runtime", "N/record"], function (
             "AND",
             ["location", "anyof", location],
             "AND",
-            ["item.custitem_gbs_cycle_count_class", "anyof", classification],
-            // "AND",
-            // ["binnumber", "anyof", "1815"]
+            ["item.custitem_gbs_cycle_count_class", "anyof", classification]
           ]
         : [
             ["onhand", "greaterthan", "0"],
@@ -214,14 +209,11 @@ define(["N/search", "N/runtime", "N/record"], function (
       var pagedResultsCount = pagedResults != null ? pagedResults.length : 0;
       startIndex += pagedResultsCount;
       var remainingUsage = runtime.getCurrentScript().getRemainingUsage();
-      //log.debug(remainingUsage);
     } while (pagedResultsCount == RANGECOUNT);
     var remainingUsage = runtime.getCurrentScript().getRemainingUsage();
     return allResults;
   }
   return {
     fieldChanged: fieldchange
-    // validateLine: validateLine,
-    // validateLine: validateLine
   };
 });
