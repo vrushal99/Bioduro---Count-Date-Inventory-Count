@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_gbs_cycle_count_class">
+  <description></description>
+  <isinactive>F</isinactive>
+  <isordered>T</isordered>
+  <name>Cycle Count Class</name>
+  <customvalues>
+    <customvalue scriptid="val_2492295_6805859_468">
+      <isinactive>F</isinactive>
+      <value>A</value>
+    </customvalue>
+    <customvalue scriptid="val_2492296_6805859_859">
+      <isinactive>F</isinactive>
+      <value>B</value>
+    </customvalue>
+    <customvalue scriptid="val_2492297_6805859_582">
+      <isinactive>F</isinactive>
+      <value>C</value>
+    </customvalue>
+    <customvalue scriptid="val_2513806_6805859_992">
+      <isinactive>F</isinactive>
+      <value>D</value>
+    </customvalue>
+  </customvalues>
+</customlist>

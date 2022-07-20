@@ -1,4 +1,14 @@
 <manifest projecttype="ACCOUNTCUSTOMIZATION">
   <projectname>gbs_bioduro_sb</projectname>
   <frameworkversion>1.0</frameworkversion>
+  <dependencies>
+    <features>
+      <feature required="true">SERVERSIDESCRIPTING</feature>
+      <feature required="false">CRM</feature>
+      <feature required="false">CREATESUITEBUNDLES</feature>
+      <feature required="false">ASSEMBLIES</feature>
+      <feature required="false">INVENTORY</feature>
+      <feature required="false">CHARGEBASEDBILLING</feature>
+    </features>
+  </dependencies>
 </manifest>
