@@ -2,6 +2,7 @@
  * @NApiVersion 2.1
  * @NScriptType ClientScript
  */
+
 // BEGIN SCRIPT DESCRIPTION BLOCK ==================================
 {
     /* 
@@ -9,22 +10,10 @@
       Author: Palavi 
       Company: Green business/Blue flame labs 
       Date: 27-06-2022 
-
-       
-       
-
       Script Modification Log: 
-
-       
-       
-
       -- version--        -- Date --           -- Modified By --                   --Requested By--                   -- Description -- 
-      1.0                  27-06-2022             Palavi                             Palavi Rajgude                   This script will populate the items on inventory count record by checking the check box and as per saved search (Lots Pending Cycle Count)
-
-
-       
-       
-
+      1.0                  27-06-2022             Palavi Rajgude                    Megan kelly                This script will populate the items on inventory count record by checking the check box and as per saved search (Lots Pending Cycle Count)
+      2.0                  20-07-2022             Palavi Rajgude                    Megan kelly                Updated the search criteria to exclude bin and locations
       */
 }
 // END SCRIPT DESCRIPTION BLOCK ====================================
